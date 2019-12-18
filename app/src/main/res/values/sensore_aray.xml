@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sensoreArray">
+        <item>فشار سنج</item>
+        <item>ضربان قلب</item>
+        <item>گام شمار</item>
+        <item>ترازو</item>
+    </string-array>
+</resources>

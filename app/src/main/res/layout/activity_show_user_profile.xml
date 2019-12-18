@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:openDrawer="start"
+    android:id="@+id/show_user_drawer"
+    tools:context=".activity.EditUserProfile"
+    android:layoutDirection="rtl">
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/backgrounddpi"
+        android:padding="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="کد کاربر:"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/show_user_profile_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:background="@drawable/background_edittext_home"
+                android:layout_margin="5dp"
+                android:layout_weight="4"
+                android:padding="10dp" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="نام:"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/show_user_profile_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext_home"
+                android:layout_margin="5dp"
+                android:gravity="center_horizontal"
+
+                android:layout_weight="4"
+                android:padding="10dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="نام خانوادگی:"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/show_user_profile_family"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext_home"
+                android:layout_margin="5dp"
+                android:gravity="center_horizontal"
+
+                android:layout_weight="4"
+                android:padding="10dp" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="سن:"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/show_user_profile_age"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:layout_margin="5dp"
+                android:gravity="center_horizontal"
+                android:background="@drawable/background_edittext_home"
+                android:padding="10dp" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="جنسیت:"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/show_user_profile_sex"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext_home"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:padding="10dp" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="قد:"
+                android:textSize="20sp"
+                android:maxLength="3"/>
+            <TextView
+                android:id="@+id/show_user_profile_tall"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext_home"
+                android:layout_margin="5dp"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:orientation="vertical">
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="2"
+                android:text="سابقه بیماری:"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/show_user_profile_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext_home"
+                android:layout_margin="5dp"
+                android:layout_weight="4"
+                android:gravity="right"
+                android:padding="10dp" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/show_user_profile_btnedit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/background_edittext"
+            android:padding="5dp"
+            android:text="ویرایش"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <include layout="@layout/menue_main"/>
+    </LinearLayout>
+</android.support.v4.widget.DrawerLayout>

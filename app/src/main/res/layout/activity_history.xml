@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/history_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    tools:context=".activity.HistoryActivity"
+    tools:openDrawer="start">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="نوع سنسور: " />
+
+            <Spinner
+                android:id="@+id/history_spiner"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/background_edittext_home"
+                android:padding="6dp"
+                android:textAlignment="center" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/history_btn_start_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:onClick="showCalendar"
+                android:text="تاریخ شروع" />
+
+            <TextView
+                android:id="@+id/history_tv_start_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/background_edittext_home"
+                android:gravity="center"
+                android:onClick="showCalendar"
+                android:padding="9dp"
+                android:text="0"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/history_btn_end_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:onClick="showCalendarEnd"
+                android:text="تاریخ پایان" />
+
+            <TextView
+                android:id="@+id/history_tv_end_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/background_edittext_home"
+                android:gravity="center"
+                android:onClick="showCalendarEnd"
+                android:padding="9dp"
+                android:text="0"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+
+
+            <Button
+                android:id="@+id/history_btn_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/background_edittext"
+
+               android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp"
+                android:paddingRight="60dp"
+                android:paddingLeft="60dp"
+                android:text="نمایش" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/history_btn_pie"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/background_edittext"
+                android:text="جدول" />
+
+            <Button
+                android:id="@+id/history_btn_bar_chart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/background_edittext"
+                android:text="نمودار خطی" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fragmentDynamic"
+            android:layout_width="match_parent"
+            android:layout_height="380dp" />
+
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_gravity="start"-->
+    <!--android:background="@color/colorPrimary"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<include layout="@layout/menue_main" />-->
+
+    <!--</LinearLayout>-->
+</android.support.v4.widget.DrawerLayout>
+
