@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.najmidpi.adapter.AdapterRecyclerHistory;
+import com.example.najmidpi.database.DbHelper;
 import com.example.najmidpi.model.HistoryTableList;
 import com.example.najmidpi.R;
 
@@ -23,11 +24,13 @@ public class FragmentTable extends Fragment {
     RecyclerView recyclerView;
     AdapterRecyclerHistory adapter;
     List<HistoryTableList> historyList;
+    private DbHelper dbHelper;
 
     @Nullable
     @Override
     public android.view.View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View = inflater.inflate(R.layout.fragment_table, container, false);
+        dbHelper = new DbHelper(container.getContext());
         init();
         prepareData();
         showData();
@@ -48,14 +51,16 @@ public class FragmentTable extends Fragment {
         }else {
             historyList.clear();
         }
-        historyList.add(new HistoryTableList("1" , "98.01.01","12:00","12"));
-        historyList.add(new HistoryTableList("2" , "98.02.01","13:00","20"));
-        historyList.add(new HistoryTableList("3" , "98.03.01","12:00","30"));
-        historyList.add(new HistoryTableList("4" , "98.04.01","15:00","11"));
-        historyList.add(new HistoryTableList("5" , "98.05.01","12:00","8"));
-        historyList.add(new HistoryTableList("6" , "98.06.01","8:00","13"));
-        historyList.add(new HistoryTableList("7" , "98.07.01","1:00","13"));
-        historyList.add(new HistoryTableList("8" , "98.08.01","18:00","12"));
+
+        for (int i = 0; i < dbHelper.getAllSensor().size(); i++) {
+            String feshar = dbHelper.getAllSensor().get(i).getFesharSanj();
+            String gam = dbHelper.getAllSensor().get(i).getGamShomar();
+            String date = dbHelper.getAllSensor().get(i).getDate();
+            String time = dbHelper.getAllSensor().get(i).getTime();
+
+
+            historyList.add(new HistoryTableList(String.valueOf(i) , date,time,gam));
+        }
     }
 
 

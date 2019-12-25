@@ -35,11 +35,13 @@
                     android:layout_weight="3"
                     android:text="کد پزشک:"
                     android:textSize="20sp" />
-                <TextView
+                <EditText
                     android:id="@+id/doctor_profile_code"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
+                    android:inputType="number"
+                   android:maxLength="7"
                     android:gravity="center_horizontal"
                     android:layout_weight="4"
                     android:background="@drawable/background_edittext_home"

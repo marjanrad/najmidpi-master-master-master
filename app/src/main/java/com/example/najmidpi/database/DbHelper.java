@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import com.example.najmidpi.model.SensorObject;
 
 import java.util.ArrayList;
@@ -21,7 +23,9 @@ public class DbHelper extends SQLiteOpenHelper {
     public final static String COL_FESHARSANJ = "feshar_sanj";
     public final static String COL_ZARABENGHALB = "zaraban_ghalb";
     public final static String COL_VAZN = "vazn";
-    public final static String COL_TIME = "time";
+    public final static String COL_DATE = "date";
+    public final static String COL_TIMES = "times";
+
     private static DbHelper dbHelper;
     private SQLiteDatabase db;
     private ContentValues values;
@@ -49,7 +53,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String queryTableSensor = "create table " + TABLE_SENSOR + " ( " + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL , " + COL_FESHARSANJ
                 + " INTEGER ," + COL_GAMSHOMAR + " INTEGER," + COL_ZARABENGHALB
-                + " INTEGER," + COL_VAZN + " INTEGER," + COL_TIME + " TEXT );";
+                + " INTEGER," + COL_VAZN + " INTEGER," + COL_TIMES + " TEXT," + COL_DATE + " TEXT );";
 
         sqLiteDatabase.execSQL(queryTableSensor);
     }
@@ -100,7 +104,10 @@ public class DbHelper extends SQLiteOpenHelper {
                 values.put(COL_GAMSHOMAR, se.getGamShomar());
                 values.put(COL_VAZN, se.getVazn());
                 values.put(COL_ZARABENGHALB, se.getZarabaneGhalb());
-                values.put(COL_TIME, se.getTime());
+                values.put(COL_DATE, se.getDate());
+                values.put(COL_TIMES, se.getTime());
+
+
                 db.insert(TABLE_SENSOR, null, values);
             }
             db.setTransactionSuccessful();
@@ -127,11 +134,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
                 SensorObject object = new SensorObject();
 
-                object.setTime(cursor.getString(cursor.getColumnIndex(COL_TIME)));
+                object.setDate(cursor.getString(cursor.getColumnIndex(COL_DATE)));
                 object.setZarabaneGhalb(cursor.getString(cursor.getColumnIndex(COL_ZARABENGHALB)));
                 object.setVazn(cursor.getString(cursor.getColumnIndex(COL_VAZN)));
                 object.setGamShomar(cursor.getString(cursor.getColumnIndex(COL_GAMSHOMAR)));
                 object.setFesharSanj(cursor.getString(cursor.getColumnIndex(COL_FESHARSANJ)));
+                object.setTime(cursor.getString(cursor.getColumnIndex(COL_TIMES)));
 
                 sensorList.add(object);
                 cursor.moveToNext();

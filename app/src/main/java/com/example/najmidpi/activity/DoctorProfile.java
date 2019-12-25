@@ -12,14 +12,17 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.najmidpi.R;
 
 public class DoctorProfile extends AppCompatActivity {
     TextView menu_user, menu_doctor, menu_history, menu_aboutus, menu_contactus, menu_home;
     private DrawerLayout mDrawerLayout;
-    TextView name, takhasos, tell, adress, code;
+    TextView name, takhasos, tell, adress;
+    EditText code;
     Button btnDrCode;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -35,12 +38,19 @@ public class DoctorProfile extends AppCompatActivity {
 
         init();
         menu();
-        setValue();
+
+
 
         btnDrCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                code.setText("525");
+                String drCode=code.getText().toString().trim();
+                if (!drCode.isEmpty()){
+                    setValue();
+
+                }
+
+
             }
         });
 

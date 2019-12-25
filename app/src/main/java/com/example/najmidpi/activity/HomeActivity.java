@@ -10,6 +10,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,8 +23,10 @@ import com.example.najmidpi.R;
 import com.example.najmidpi.database.DbHelper;
 import com.example.najmidpi.model.SensorObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
@@ -54,6 +57,7 @@ public class HomeActivity extends AppCompatActivity {
         init();
         menu();
         clickButten();
+
 
     }
 
@@ -146,22 +150,34 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sensorObject = new SensorObject();
+
+                //get time
+                Calendar times = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                String time = sdf.format(times.getTime());
+
+                //set in sqlite
                 list = new ArrayList<>();
                 sensorObject.setFesharSanj(tvBarometer.getText().toString());
                 sensorObject.setGamShomar(tvPedimeter.getText().toString());
                 sensorObject.setVazn(tvBalance.getText().toString());
                 sensorObject.setZarabaneGhalb(tvHeartbeat.getText().toString());
-                sensorObject.setTime(getCurrentTime());
+                sensorObject.setDate(getCurrentTime());
+                sensorObject.setTime(time);
                 list.add(sensorObject);
                 dbHelper.add_sensor(list);
+
+
+                //get from sqlite
                 for (int i = 0; i < dbHelper.getAllSensor().size(); i++) {
                 String feshar = dbHelper.getAllSensor().get(i).getFesharSanj();
                    String gam = dbHelper.getAllSensor().get(i).getGamShomar();
-                    String time = dbHelper.getAllSensor().get(i).getTime();
-                    Log.e("db", String.valueOf(feshar + gam
-                            + time));
-                    Toast.makeText(HomeActivity.this, String.valueOf(feshar + gam
-                            + time), Toast.LENGTH_SHORT).show();
+                    String date = dbHelper.getAllSensor().get(i).getDate();
+
+//                    Log.e("db", String.valueOf(feshar + gam
+//                            + date));
+//                    Toast.makeText(HomeActivity.this, String.valueOf(feshar + gam
+//                            + date + time), Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -178,6 +194,8 @@ public class HomeActivity extends AppCompatActivity {
 //        return time;
 
             Calendar c = Calendar.getInstance();
+
+
             String jalaliDate,JalaliMonth;
             int jalaliYear,jalaliMonth,calculateMonth,jalaliDay=0,allDays=0;
             int day=c.get(Calendar.DAY_OF_MONTH);
@@ -218,6 +236,7 @@ public class HomeActivity extends AppCompatActivity {
                 if((jalaliYear%4)==0)jalaliDay=calculateMonth-336;
                 else jalaliDay=calculateMonth-335;
             }
+
 
             String time=String.valueOf(jalaliYear)+"/"+String.valueOf(jalaliMonth)+"/"+String.valueOf(jalaliDay-1);
             return time;

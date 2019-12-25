@@ -1,18 +1,19 @@
 package com.example.najmidpi.model;
 
 public class SensorObject {
-    private String time;
+    private String Date;
+    private String Time;
     private String gamShomar;
     private String zarabaneGhalb;
     private String fesharSanj;
     private String vazn;
 
-    public String getTime() {
-        return time;
+    public String getDate() {
+        return Date;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setDate(String date) {
+        this.Date = date;
     }
 
     public String getGamShomar() {
@@ -45,5 +46,13 @@ public class SensorObject {
 
     public void setVazn(String vazn) {
         this.vazn = vazn;
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
     }
 }

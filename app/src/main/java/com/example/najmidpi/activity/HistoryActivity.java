@@ -38,6 +38,7 @@ public class HistoryActivity extends AppCompatActivity {
     private Button fragmentPie, fragmentBarChart;
     private PersianDatePickerDialog picker;
     TextView tvStartDate , tvEndDate;
+    Button btnShow;
 
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -57,6 +58,13 @@ public class HistoryActivity extends AppCompatActivity {
         menu();
         spiner();
         chart();
+
+        btnShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 
@@ -124,6 +132,8 @@ public class HistoryActivity extends AppCompatActivity {
         //date
         tvStartDate=findViewById(R.id.history_tv_start_date);
         tvEndDate=findViewById(R.id.history_tv_end_date);
+
+        btnShow=findViewById(R.id.history_btn_show);
 
     }
 

@@ -35,8 +35,17 @@ public class AdapterRecyclerHistory extends RecyclerView.Adapter<AdapterRecycler
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder viewHolder, int i) {
-        viewHolder.bind(ListHistory.get(i));
+//        viewHolder.bind(ListHistory.get(i));
 
+        String date=ListHistory.get(i).getDate();
+        String value=ListHistory.get(i).getValue();
+        String count=ListHistory.get(i).getCount();
+        String time=ListHistory.get(i).getTime();
+
+        viewHolder.counter.setText(String.valueOf(i+1));
+        viewHolder.date.setText(date);
+        viewHolder.value.setText(value);
+        viewHolder.time.setText(time);
     }
 
     @Override
