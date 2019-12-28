@@ -2,6 +2,7 @@ package com.example.najmidpi.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,10 +18,30 @@ public class MainActivity extends AppCompatActivity {
     EditText enter_eamil , enter_pass;
     public static final String MY_PREFS_NAME = "MyPrefsFile";
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+
+        SharedPreferences.Editor editor = sp.edit();
+
+//        boolean hasUser = sp.getBoolean("hasUser", false);
+//
+//        if(!hasUser){
+//            // code
+//            Intent intent=new Intent(this,HomeActivity.class);
+//            startActivity(intent);
+//            editor.putBoolean("hasUser", true);
+//            editor.apply();
+//        }
+
+
 
         btn_signin = findViewById(R.id.main_btn_signin);
         btn_signup = findViewById(R.id.main_btn_signup);
