@@ -1,18 +1,29 @@
 package com.example.najmidpi.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public class HistoryTableList {
 
-    String count , date , time , value;
+    String count, date, time, value;
+    int dataSend;
 
-    public HistoryTableList(String count , String date , String time , String value){
 
-        this.count=count;
-        this.date=date;
-        this.time=time;
-        this.value=value;
+    public HistoryTableList(String count, String date, String time, String value, int dataSend) {
 
+        this.count = count;
+        this.date = date;
+        this.time = time;
+        this.value = value;
+        this.dataSend = dataSend;
+
+    }
+
+    public int getDataSend() {
+        return dataSend;
+    }
+
+    public void setDataSend(int dataSend) {
+        this.dataSend = dataSend;
     }
 
     public String getCount() {

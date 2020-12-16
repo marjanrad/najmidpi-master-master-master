@@ -4,14 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,9 +15,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.najmidpi.R;
+import com.example.najmidpi.adapter.AdapterRecyclerHistory;
 import com.example.najmidpi.fragment.FragmentBarChart;
 import com.example.najmidpi.fragment.FragmentTable;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import ir.hamsaa.persiandatepicker.Listener;
 import ir.hamsaa.persiandatepicker.PersianDatePickerDialog;
 import ir.hamsaa.persiandatepicker.util.PersianCalendar;
@@ -35,10 +36,13 @@ public class HistoryActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     Spinner sensoreSpinner;
     String[] stringSensore;
-    private Button fragmentPie, fragmentBarChart;
+    private Button fragmentTable, fragmentBarChart;
     private PersianDatePickerDialog picker;
-    TextView tvStartDate , tvEndDate;
+    TextView tvStartDate, tvEndDate;
     Button btnShow;
+    String startYear, startMonth, startDay;
+    String endYear, endMonth, endDay;
+    int typeSensore = 0;
 
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -62,27 +66,58 @@ public class HistoryActivity extends AppCompatActivity {
         btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                recreate();
+                final Bundle bundle = new Bundle();
+                final FragmentTable fragment = new FragmentTable();
 
+                bundle.clear();
+                bundle.putString("startYear", startYear);
+                bundle.putString("startMonth", startMonth);
+                bundle.putString("startDay", startDay);
+                bundle.putString("endYear", endYear);
+                bundle.putString("endMonth", endMonth);
+                bundle.putString("endDay", endDay);
+
+                fragment.setArguments(bundle);
+
+                setFragment(fragment);
             }
         });
 
     }
 
     private void chart() {
-        fragmentPie.setOnClickListener(new View.OnClickListener() {
+
+        final Bundle bundle = new Bundle();
+        final FragmentTable fragment = new FragmentTable();
+        final FragmentBarChart fragment2 = new FragmentBarChart();
+
+
+        fragmentTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                setFragment(new FragmentTable());
-            }
-        });
-        fragmentBarChart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                bundle.clear();
+                bundle.putString("startYear", startYear);
+                bundle.putString("startMonth", startMonth);
+                bundle.putString("startDay", startDay);
+                bundle.putString("endYear", endYear);
+                bundle.putString("endMonth", endMonth);
+                bundle.putString("endDay", endDay);
 
-                setFragment(new FragmentBarChart());
+                fragment.setArguments(bundle);
+
+                setFragment(fragment);
             }
         });
+
+//        fragmentBarChart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                setFragment(fragment2);
+//            }
+//        });
 
     }
 
@@ -102,7 +137,11 @@ public class HistoryActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(HistoryActivity.this,(String) parent.getSelectedItem(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HistoryActivity.this, (String) parent.getSelectedItem(), Toast.LENGTH_SHORT).show();
+
+
+                AdapterRecyclerHistory adapter = new AdapterRecyclerHistory();
+                adapter.sensoreType(position);
             }
 
             @Override
@@ -126,14 +165,14 @@ public class HistoryActivity extends AppCompatActivity {
         menu_home = findViewById(R.id.menu_home);
 
         //chart
-        fragmentPie = findViewById(R.id.history_btn_pie);
-        fragmentBarChart = findViewById(R.id.history_btn_bar_chart);
+        fragmentTable = findViewById(R.id.history_btn_pie);
+//        fragmentBarChart = findViewById(R.id.history_btn_bar_chart);
 
         //date
-        tvStartDate=findViewById(R.id.history_tv_start_date);
-        tvEndDate=findViewById(R.id.history_tv_end_date);
+        tvStartDate = findViewById(R.id.history_tv_start_date);
+        tvEndDate = findViewById(R.id.history_tv_end_date);
 
-        btnShow=findViewById(R.id.history_btn_show);
+        btnShow = findViewById(R.id.history_btn_show);
 
     }
 
@@ -167,7 +206,7 @@ public class HistoryActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:09127792410"));
+                intent.setData(Uri.parse("tel:09212755760"));
                 startActivity(intent);
 
             }
@@ -225,8 +264,12 @@ public class HistoryActivity extends AppCompatActivity {
                 .setListener(new Listener() {
                     @Override
                     public void onDateSelected(PersianCalendar persianCalendar) {
-                        Toast.makeText(HistoryActivity.this, persianCalendar.getPersianYear() + "/" + persianCalendar.getPersianMonth() + "/" + persianCalendar.getPersianDay(), Toast.LENGTH_SHORT).show();
-                   tvStartDate.setText(persianCalendar.getPersianYear()+ "/" + persianCalendar.getPersianMonth() + "/" + persianCalendar.getPersianDay());
+
+                        startYear = String.valueOf(persianCalendar.getPersianYear());
+                        startMonth = String.valueOf(persianCalendar.getPersianMonth());
+                        startDay = String.valueOf(persianCalendar.getPersianDay());
+
+                        tvStartDate.setText(persianCalendar.getPersianYear() + "/" + persianCalendar.getPersianMonth() + "/" + persianCalendar.getPersianDay());
 
 
                     }
@@ -253,8 +296,12 @@ public class HistoryActivity extends AppCompatActivity {
                 .setListener(new Listener() {
                     @Override
                     public void onDateSelected(PersianCalendar persianCalendar) {
-                        tvEndDate.setText(persianCalendar.getPersianYear()+ "/" + persianCalendar.getPersianMonth() + "/" + persianCalendar.getPersianDay());
-                        Toast.makeText(HistoryActivity.this, persianCalendar.getPersianYear() + "/" + persianCalendar.getPersianMonth() + "/" + persianCalendar.getPersianDay(), Toast.LENGTH_SHORT).show();
+
+                        endYear = String.valueOf(persianCalendar.getPersianYear());
+                        endMonth = String.valueOf(persianCalendar.getPersianMonth());
+                        endDay = String.valueOf(persianCalendar.getPersianDay());
+
+                        tvEndDate.setText(persianCalendar.getPersianYear() + "/" + persianCalendar.getPersianMonth() + "/" + persianCalendar.getPersianDay());
                     }
 
                     @Override

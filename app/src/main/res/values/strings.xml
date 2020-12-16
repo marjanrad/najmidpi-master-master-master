@@ -1,4 +1,27 @@
 <resources>
-    <string name="app_name">najmidpi</string>
-    <string name="about_us">فعالیت‌های شعبه‌ی آی‌بی‌ام (IBM) در ایران که از سال 1363 به عـنوان شرکت داده‌پردازی ایران شناخته شد، در سال 1336 و همزمان با اجرای سرشماری عمومی کشور و به کارگیری دستگاه‌های کارتخوان آغاز گردید. با توجه به زمینه‌های رو به گسترش کاربرد کامپیوتر در انجام محاسبات ریاضی و ذخیره‌سازی اطلاعات، به مرور فعالیت‌های این شرکت در بسیاری از سازمان‌ها، وزارتخانه‌ها و دانشگاه‌ها توسعه یافت به گونه‌ای که در سالهای 1356 و 1357 با در اختیار داشتن نزدیک به چهارصـد نیـروی متخصـص، بــه طـور تقریبــاً انحصـــاری کلیه فعالیت‌های پردازش و محاسبات الکترونیک در مراکز مهم تصمیم‌گیری، برنامه‌ریزی و دانشگاهی کشور را برعهده داشته است.</string>
+    <string name="app_name">teslam</string>
+    <string name="about_us">در دنیای امروز با توجه به افزایش جمعیت و به دنبال آن افزایش مراجعین به پزشکان و همین طور محدودیت های زمانی و مکانی مراجعه به پزشک مد نظر،نیاز به ایجاد یک کانال ارتباطی از راه دور میان پزشکان و بیماران بیش از پیش احساس می شود.این مقوله تحت عنوان Tele-Health  (تله-سلامت) مطرح می شود.
+تسلام سامانه پایش سلامت از راه دور مبتنی بر تکنولوژی های اینترنت اشیاء(IoT) به منظور ارتباط بی سیم افراد با تجهیزات پزشکی می باشد.
+</string>
+
+    <!--    bluetooth-->
+    <string name="ble_not_supported">BLE is not supported</string>
+    <string name="label_data">Data:</string>
+    <string name="label_device_address">Device address:</string>
+    <string name="label_state">State:</string>
+    <string name="no_data">No data</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="title_devices">BLE Device Scan</string>
+    <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
+
+    <string name="unknown_device">Unknown device</string>
+    <string name="unknown_characteristic">Unknown characteristic</string>
+    <string name="unknown_service">Unknown service</string>
+
+    <!-- Menu items -->
+    <string name="menu_connect">Connect</string>
+    <string name="menu_disconnect">Disconnect</string>
+    <string name="menu_scan">Scan</string>
+    <string name="menu_stop">Stop</string>
 </resources>

@@ -3,7 +3,8 @@
     <string-array name="sensoreArray">
         <item>فشار سنج</item>
         <item>ضربان قلب</item>
-        <item>گام شمار</item>
+        <item>اکسیژن خون</item>
         <item>ترازو</item>
+        <item>قند خون</item>
     </string-array>
 </resources>

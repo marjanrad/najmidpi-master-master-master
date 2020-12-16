@@ -1,0 +1,76 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "55cfe45f2d0be94fd75e58297079062e",
+    "entities": [
+      {
+        "tableName": "sensor",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `blood_oxygen` REAL NOT NULL, `feshar_sanj` REAL NOT NULL, `zaraban_ghalb` REAL NOT NULL, `vazn` REAL NOT NULL, `ghnad_khon` REAL NOT NULL, `date` TEXT, `times` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "_id",
+            "columnName": "_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gam_shomar",
+            "columnName": "blood_oxygen",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "feshar_sanj",
+            "columnName": "feshar_sanj",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "zaraban_ghalb",
+            "columnName": "zaraban_ghalb",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vazn",
+            "columnName": "vazn",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ghandKhon",
+            "columnName": "ghnad_khon",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "times",
+            "columnName": "times",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '55cfe45f2d0be94fd75e58297079062e')"
+    ]
+  }
+}

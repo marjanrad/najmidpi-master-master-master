@@ -1,32 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.najmidpi">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="تسلام"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:networkSecurityConfig="@xml/security_config"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.Activity_Register"></activity>
-        <activity android:name=".activity.HistoryActivity" />
-        <activity android:name=".activity.AboutUs" />
-        <activity android:name=".activity.DoctorProfile" />
-        <activity android:name=".activity.EditUserProfile" />
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.MainActivity">
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activity.SplashActivity"
+            android:theme="@style/Theme.Design.NoActionBar"></activity>
+        <activity
+            android:name=".activity.Activity_Register"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".activity.HistoryActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.AboutUs"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.DoctorProfile"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.EditUserProfile"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.SignInActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ShowUserProfile" />
+        <activity
+            android:name=".activity.ShowUserProfile"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".bluetooth.DeviceScanActivity"
+            android:label="در حال اتصال..."
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".bluetooth.DeviceControlActivity"
+            android:label="در حال دریافت داده..."
+            android:theme="@android:style/Theme.Dialog" />
+
+        <service
+            android:name=".bluetooth.BluetoothLeService"
+            android:enabled="true" />
     </application>
 
 </manifest>

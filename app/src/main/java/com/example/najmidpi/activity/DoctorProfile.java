@@ -3,27 +3,29 @@ package com.example.najmidpi.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.najmidpi.R;
+import com.google.android.material.textfield.TextInputLayout;
 
-public class DoctorProfile extends AppCompatActivity {
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+public class
+DoctorProfile extends AppCompatActivity {
     TextView menu_user, menu_doctor, menu_history, menu_aboutus, menu_contactus, menu_home;
     private DrawerLayout mDrawerLayout;
     TextView name, takhasos, tell, adress;
-    EditText code;
+//    EditText code;
     Button btnDrCode;
+    TextInputLayout code;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
@@ -44,7 +46,7 @@ public class DoctorProfile extends AppCompatActivity {
         btnDrCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String drCode=code.getText().toString().trim();
+                String drCode=code.getEditText().getText().toString().trim();
                 if (!drCode.isEmpty()){
                     setValue();
 
@@ -117,7 +119,7 @@ public class DoctorProfile extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:09127792410"));
+                intent.setData(Uri.parse("tel:09212755760"));
                 startActivity(intent);
 
             }

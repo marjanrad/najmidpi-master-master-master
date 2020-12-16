@@ -1,129 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/edit_user_drawer"
-    tools:openDrawer="start"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="rtl"
     tools:context=".activity.EditUserProfile"
-    android:layoutDirection="rtl">
+    tools:openDrawer="start">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/backgrounddpi"
             android:orientation="vertical"
-            android:padding="20dp"
-            android:background="@drawable/backgrounddpi">
+            android:gravity="center"
+            android:padding="20dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_user_profile_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_input"
+                android:hint="نام و نام خانوادگی"
+                android:padding="2dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_user_profile_call"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/background_input"
+                android:hint="شماره تماس"
+                android:padding="2dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:maxLength="11"
+                    android:layout_marginRight="8dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_user_profile_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/background_input"
+                android:hint="سن"
+                android:padding="2dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:maxLength="3"
+                    android:layout_marginRight="8dp"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_user_profile_tall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/background_input"
+                android:hint="قد"
+                android:padding="2dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:maxLength="3"
+                    android:layout_marginRight="8dp"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_user_profile_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/background_input"
+                android:hint="وزن"
+                android:padding="2dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:maxLength="3"
+                    android:layout_marginRight="8dp"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:padding="5dp">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="نام:"
-                    android:textSize="20sp" />
 
-                <EditText
-                    android:id="@+id/edit_user_profile_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:background="@drawable/background_edittext_home"
-                    android:maxLength="40"
-                    android:maxLines="1"
-                    android:padding="10dp" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="نام خانوادگی:"
-                    android:textSize="20sp" />
-                <EditText
-                    android:id="@+id/edit_user_profile_family"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:background="@drawable/background_edittext_home"
-                    android:padding="10dp"
-                    android:maxLines="1"
-                    android:maxLength="50" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="5dp">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="سن:"
-                    android:textSize="20sp" />
-                <EditText
-                    android:id="@+id/edit_user_profile_age"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:background="@drawable/background_edittext_home"
-                    android:inputType="number"
-                    android:padding="10dp"
-                    android:maxLength="3"/>
-
-
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="5dp">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="قد:"
-                    android:textSize="20sp"
-                    android:maxLength="3"/>
-                <EditText
-                    android:id="@+id/edit_user_profile_tall"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:background="@drawable/background_edittext_home"
-                    android:inputType="number"
-                    android:padding="10dp" />
-
-
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="5dp">
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -135,81 +130,90 @@
                     android:id="@+id/edit_user_profile_radioGroup"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_weight="4"
-                    android:gravity="center_horizontal">
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:id="@+id/edit_user_profile_radiomale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:padding="10dp"
                         android:text="مرد"
-                        android:textSize="20sp"
-                        android:padding="10dp" />
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/edit_user_profile_radiofemail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="زن"
                         android:checked="true"
-                        android:textSize="20sp"
-                        android:padding="10dp"/>
+                        android:padding="10dp"
+                        android:text="زن"
+                        android:textSize="20sp" />
                 </RadioGroup>
 
 
             </LinearLayout>
 
 
-
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_user_profile_patient_history"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="5dp"
-                android:orientation="vertical">
-                <TextView
+                android:background="@drawable/background_input"
+                android:hint="سابقه بیماری"
+                android:padding="2dp">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="سابقه بیماری:"
-                    android:textSize="20sp" />
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp" />
 
-                <EditText
-                    android:id="@+id/edit_user_profile_patient_history"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_user_profile_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/background_input"
+                android:hint="آدرس"
+                android:padding="2dp">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:background="@drawable/background_edittext_home"
-                    android:padding="10dp"
-                    android:layout_marginTop="5dp"/>
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp" />
 
-
-            </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/edit_user_profile_btnsave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/background_edittext"
-                android:padding="5dp"
-                android:text="ثبت"
-                android:textSize="20sp" />
+                android:layout_marginTop="15dp"
+                android:background="@drawable/background_button"
+                android:fontFamily="@font/tomnr"
+                android:padding="10dp"
+                android:textColor="#fff"
+                android:text="ثبت مشخصات"
+                android:textSize="18sp" />
 
 
         </LinearLayout>
 
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/colorPrimary"
-        android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="start"
+                        android:background="@color/colorPrimary"
+                        android:orientation="vertical">
 
-        <include layout="@layout/menue_main"/>
-    </LinearLayout>
-</android.support.v4.widget.DrawerLayout>
+                        <include layout="@layout/menue_main"/>
+                    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

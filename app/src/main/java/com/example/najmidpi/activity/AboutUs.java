@@ -3,11 +3,6 @@ package com.example.najmidpi.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.najmidpi.R;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 public class AboutUs extends AppCompatActivity {
     TextView menu_user,menu_doctor,menu_history,menu_aboutus,menu_contactus , menu_home;
@@ -39,11 +40,9 @@ public class AboutUs extends AppCompatActivity {
         btn_web.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://www.dpi.ir"));
-                startActivity(intent);
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://teslam.ir"));
+                startActivity(browserIntent);
 
             }
         });
@@ -94,7 +93,7 @@ public class AboutUs extends AppCompatActivity {
 
                 Intent intent = new Intent(Intent.ACTION_DIAL
                 );
-                intent.setData(Uri.parse("tel:09127792410"));
+                intent.setData(Uri.parse("tel:09212755760"));
                 startActivity(intent);
 
             }

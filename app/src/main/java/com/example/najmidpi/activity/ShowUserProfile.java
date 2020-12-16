@@ -5,11 +5,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,10 +12,16 @@ import android.widget.TextView;
 
 import com.example.najmidpi.R;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 
 public class ShowUserProfile extends AppCompatActivity {
     TextView menu_user, menu_doctor, menu_history, menu_aboutus, menu_contactus, menu_home;
-    TextView input_id, input_name, input_family, input_age, input_tall, input_patient ,input_sex;
+    TextView input_id, input_name, input_address, input_age, input_tall, input_patient ,input_sex ,input_weight ,input_call;
     ;
     private DrawerLayout mDrawerLayout;
     Button btn_edit;
@@ -47,6 +48,7 @@ public class ShowUserProfile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), EditUserProfile.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -55,25 +57,30 @@ public class ShowUserProfile extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         String first_name = prefs.getString("NAME", "");
-        String last_name = prefs.getString("FAMILY", "");
+        String address = prefs.getString("ADDRESS", "");
         String age = prefs.getString("AGE", "");
         String tall = prefs.getString("TALL", "");
         String patient_history = prefs.getString("PATIENT", "");
         String sex = prefs.getString("SEX", "");
+        String weight = prefs.getString("WEIGHT", "");
+        String call = prefs.getString("NEWCALL", "");
 
         input_id.setText("0");
         input_name.setText(first_name);
-        input_family.setText(last_name);
+        input_address.setText(address);
         input_age.setText(age);
         input_tall.setText(tall);
         input_patient.setText(patient_history);
         input_sex.setText(sex);
-
+        input_weight.setText(weight);
+        input_call.setText(call);
 
     }
 
     private void init() {
         btn_edit = findViewById(R.id.show_user_profile_btnedit);
+
+        //menu
         menu_user = findViewById(R.id.menu_user);
         menu_doctor = findViewById(R.id.menu_doctor);
         menu_history = findViewById(R.id.menu_history);
@@ -81,13 +88,17 @@ public class ShowUserProfile extends AppCompatActivity {
         menu_contactus = findViewById(R.id.menu_contactus);
         mDrawerLayout = findViewById(R.id.show_user_drawer);
         menu_home = findViewById(R.id.menu_home);
+
+        //textView
         input_id = findViewById(R.id.show_user_profile_id);
         input_name = findViewById(R.id.show_user_profile_name);
-        input_family = findViewById(R.id.show_user_profile_family);
+        input_address = findViewById(R.id.show_user_profile_address);
         input_age = findViewById(R.id.show_user_profile_age);
         input_tall = findViewById(R.id.show_user_profile_tall);
         input_patient = findViewById(R.id.show_user_profile_description);
         input_sex = findViewById(R.id.show_user_profile_sex);
+        input_weight=findViewById(R.id.show_user_profile_weight);
+        input_call=findViewById(R.id.show_user_profile_call);
 
     }
 
@@ -120,7 +131,7 @@ public class ShowUserProfile extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:09127792410"));
+                intent.setData(Uri.parse("tel:09212755760"));
                 startActivity(intent);
 
             }
